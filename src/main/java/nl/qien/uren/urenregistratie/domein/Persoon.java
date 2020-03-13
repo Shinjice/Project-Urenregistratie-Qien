@@ -22,10 +22,10 @@ public class Persoon {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public String getName() {
+	public String getNaam() {
 		return naam;
 	}
-	public void setName(String naam) {
+	public void setNaam(String naam) {
 		this.naam = naam;
 	}
 	

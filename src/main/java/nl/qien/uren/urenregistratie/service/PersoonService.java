@@ -21,6 +21,5 @@ public class PersoonService {
 	public Iterable <Persoon> findAll(){
 		Iterable <Persoon> result = persoonRepository.findAll();
 		return result;
-	}
-	
+	}	
 }
