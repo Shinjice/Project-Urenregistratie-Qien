@@ -46,7 +46,6 @@ public class GebruikerEndpoint {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
-	
 	@DeleteMapping("/delete/{id}") //nog niet getest
 	public void deleteGebruiker(@PathVariable(value = "id") Long id,
 			  @Valid @RequestBody Gebruiker gebruiker) {
@@ -57,8 +56,11 @@ public class GebruikerEndpoint {
 		long id = opdrachtgever.getId();
 		return gebruikerService.findById1(id);
 	}
-	
-	
+	@PostMapping("/postopdrachtgever")
+	public void addOpdrachtgever(@RequestBody Opdrachtgever opdrachtgever) {
+		System.out.println("hallo");
+		gebruikerService.addOpdrachtgever(opdrachtgever);
+	}
 	
 	
 }
