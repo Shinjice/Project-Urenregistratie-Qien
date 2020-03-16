@@ -28,9 +28,9 @@ public class GebruikerEndpoint {
 	}
 	@GetMapping("/getbyid")
 	public Optional <Gebruiker> getGebruikerById(Gebruiker gebruiker) {
-		long id = gebruiker.getId()
+		long id = gebruiker.getId();
 		return gebruikerService.findById(id);
-	
+	}
 	@PostMapping("/post")
 	public void addGebruiker(@RequestBody Gebruiker gebruiker) {
 		System.out.println("hallo");
