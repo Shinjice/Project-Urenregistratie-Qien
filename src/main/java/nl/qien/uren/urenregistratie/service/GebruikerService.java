@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
+import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
 import nl.qien.uren.urenregistratie.repository.GebruikerRepository;
+import nl.qien.uren.urenregistratie.repository.OpdrachtgeverRepository;
 
 
 @Service
@@ -17,6 +19,8 @@ import nl.qien.uren.urenregistratie.repository.GebruikerRepository;
 public class GebruikerService {
 	@Autowired
 	GebruikerRepository gebruikerRepository;
+	@Autowired
+	OpdrachtgeverRepository opdrachtgeverRepository;
 	
 	public void addGebruiker(Gebruiker gebruiker) {
 		gebruikerRepository.save(gebruiker);
@@ -33,5 +37,11 @@ public class GebruikerService {
 		gebruikerRepository.delete(gebruiker);
 	}
 	
-	
+	public void addOpdrachtgever(Opdrachtgever opdrachtgever) {
+		opdrachtgeverRepository.save(opdrachtgever);
+	}
+	public Optional<Opdrachtgever> findById1(long id){
+		Optional<Opdrachtgever> result = opdrachtgeverRepository.findById(id);
+		return result;
+	}
 }
