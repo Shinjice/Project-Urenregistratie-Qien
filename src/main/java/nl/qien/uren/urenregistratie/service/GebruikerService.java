@@ -44,4 +44,5 @@ public class GebruikerService {
 		Optional<Opdrachtgever> result = opdrachtgeverRepository.findById(id);
 		return result;
 	}
+	
 }
