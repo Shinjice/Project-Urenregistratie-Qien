@@ -60,7 +60,7 @@ public class GebruikerEndpoint {
 	public void addOpdrachtgever(@RequestBody Opdrachtgever opdrachtgever) {
 		System.out.println("hallo");
 		gebruikerService.addOpdrachtgever(opdrachtgever);
-	
+	}
 	
 	
 }
