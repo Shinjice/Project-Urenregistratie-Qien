@@ -3,9 +3,12 @@ package nl.qien.uren.urenregistratie.domein;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Gebruiker {
@@ -22,6 +25,11 @@ public class Gebruiker {
 	private String emailAdres;
 	private String telefoonNummer;
 	private String wachtwoordHash;
+	
+	@ManyToOne//(fetch=FetchType.LAZY)
+	@JoinColumn(name="OWNER_ID")
+	private Opdrachtgever owner;
+	
 	
 	public long getId() {
 		return id;
