@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
+import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
+import nl.qien.uren.urenregistratie.repository.OpdrachtgeverRepository;
 import nl.qien.uren.urenregistratie.service.GebruikerService;
 
 @RestController
 public class GebruikerEndpoint {
 	@Autowired
 	GebruikerService gebruikerService;
+
 	
 	
 	@GetMapping("/get")
@@ -49,7 +52,11 @@ public class GebruikerEndpoint {
 			  @Valid @RequestBody Gebruiker gebruiker) {
 		gebruikerService.deleteGebruiker(gebruiker);
 	}
-	
+	@GetMapping("/getbyidOpdrachtgever/{id}")
+	public Optional<Opdrachtgever> getOpdrachtgeverById(Opdrachtgever opdrachtgever) {
+		long id = opdrachtgever.getId();
+		return gebruikerService.findById1(id);
+	}
 	
 	
 	

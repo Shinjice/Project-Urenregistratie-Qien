@@ -31,6 +31,12 @@ public class Gebruiker {
 	private Opdrachtgever owner;
 	
 	
+	public Opdrachtgever getOwner() {
+		return owner;
+	}
+	public void setOwner(Opdrachtgever owner) {
+		this.owner = owner;
+	}
 	public long getId() {
 		return id;
 	}
