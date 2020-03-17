@@ -1,5 +1,6 @@
 package nl.qien.uren.urenregistratie.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -44,5 +45,11 @@ public class GebruikerService {
 		Optional<Opdrachtgever> result = opdrachtgeverRepository.findById(id);
 		return result;
 	}
+	public List<Gebruiker> findByAchternaam(String achternaam) {
+		List<Gebruiker> gebruiker = gebruikerRepository.findByAchternaam(achternaam);
+		System.out.println("hoi"+gebruiker.size());
+		return gebruiker;
+		}
+		
 	
 }
