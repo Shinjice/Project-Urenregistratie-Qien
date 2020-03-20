@@ -19,6 +19,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private GebruikerDetailsService gebruikerDetailsService;
 
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
+
     /* Creates test user with default credentials
      * NOTE: remove in production
      */
@@ -30,10 +35,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         gebruikerService.addGebruiker(gebruiker);
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    }
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
