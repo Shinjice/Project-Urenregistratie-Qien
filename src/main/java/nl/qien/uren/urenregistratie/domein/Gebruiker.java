@@ -25,7 +25,7 @@ public class Gebruiker {
 	private String emailAdres;
 	private String telefoonNummer;
 	private String wachtwoordHash;
-	
+
 	@ManyToOne
 	private Opdrachtgever owner;
 	
@@ -78,5 +78,5 @@ public class Gebruiker {
 	public void setWachtwoordHash(String wachtwoordHash) {
 		this.wachtwoordHash = wachtwoordHash;
 	}
-	
+
 }

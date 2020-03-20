@@ -20,16 +20,23 @@ import nl.qien.uren.urenregistratie.repository.OpdrachtgeverRepository;
 public class GebruikerService {
 	@Autowired
 	GebruikerRepository gebruikerRepository;
+
 	@Autowired
 	OpdrachtgeverRepository opdrachtgeverRepository;
 	
 	public void addGebruiker(Gebruiker gebruiker) {
 		gebruikerRepository.save(gebruiker);
 	}
+
 	public Optional<Gebruiker> findById(long id){
 		Optional<Gebruiker> result = gebruikerRepository.findById(id);
 		return result;
 	}
+
+	public Optional<Gebruiker> findByEmailAdres(String emailAdres) {
+		return this.gebruikerRepository.findByEmailAdres(emailAdres);
+	}
+
 	public Iterable <Gebruiker> findAll(){
 		Iterable <Gebruiker> result = gebruikerRepository.findAll();
 		return result;
@@ -41,15 +48,17 @@ public class GebruikerService {
 	public void addOpdrachtgever(Opdrachtgever opdrachtgever) {
 		opdrachtgeverRepository.save(opdrachtgever);
 	}
+
 	public Optional<Opdrachtgever> findById1(long id){
 		Optional<Opdrachtgever> result = opdrachtgeverRepository.findById(id);
 		return result;
 	}
+
 	public List<Gebruiker> findByAchternaam(String achternaam) {
 		List<Gebruiker> gebruiker = gebruikerRepository.findByAchternaam(achternaam);
 		System.out.println("hoi"+gebruiker.size());
 		return gebruiker;
-		}
+	}
 		
 	
 }
