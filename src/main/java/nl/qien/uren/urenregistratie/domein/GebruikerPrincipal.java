@@ -1,9 +1,11 @@
 package nl.qien.uren.urenregistratie.domein;
 
+import org.springframework.context.annotation.Role;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
+import java.util.*;
 
 public class GebruikerPrincipal implements UserDetails {
     private Gebruiker gebruiker;
@@ -14,7 +16,7 @@ public class GebruikerPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

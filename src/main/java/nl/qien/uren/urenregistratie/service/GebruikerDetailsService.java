@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /* Guide on Spring Security authentication with a
- * database-backed UserDetailsService:
+ * custom database-backed GebruikerDetailsService:
  * https://www.baeldung.com/spring-security-authentication-with-a-database
  */
 @Service
