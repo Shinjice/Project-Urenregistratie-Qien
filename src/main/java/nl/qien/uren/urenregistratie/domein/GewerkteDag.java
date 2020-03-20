@@ -1,5 +1,7 @@
 package nl.qien.uren.urenregistratie.domein;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,16 @@ public class GewerkteDag {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long dagNummer;
+	LocalDate datum;
 	private float opdracht;
 	private float overwerk;
 	private float verlof;
+	public LocalDate getDatum() {
+		return datum;
+	}
+	public void setDatum(LocalDate datum) {
+		this.datum = datum;
+	}
 	private float ziek;
 	private float training;
 	private float overig;
