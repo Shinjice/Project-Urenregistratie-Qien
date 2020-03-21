@@ -1,5 +1,6 @@
 package nl.qien.uren.urenregistratie.domein;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -7,31 +8,35 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
 @Entity
 public class GewerkteDag {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long dagNummer;
-	LocalDate datum;
+	private long idGewerkteDag;
+	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
+	private Date datum;
 	private float opdracht;
 	private float overwerk;
 	private float verlof;
-	public LocalDate getDatum() {
-		return datum;
-	}
-	public void setDatum(LocalDate datum) {
-		this.datum = datum;
-	}
 	private float ziek;
 	private float training;
 	private float overig;
 	String verklaringOverleg;
 	
-	public long getDagNummer() {
-		return dagNummer;
+	public long getIdGewerkteDag() {
+		return idGewerkteDag;
 	}
-	public void setDagNummer(long dagNummer) {
-		this.dagNummer = dagNummer;
+	public void setIdGewerkteDag(long idGewerkteDag) {
+		this.idGewerkteDag = idGewerkteDag;
+	}
+	public Date getDatum() {
+		return datum;
+	}
+	public void setDatum(Date datum) {
+		this.datum = datum;
 	}
 	public float getOpdracht() {
 		return opdracht;
