@@ -1,8 +1,8 @@
-package nl.qien.uren.urenregistratie.config;
+package nl.qien.uren.urenregistratie.security.config;
 
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.service.GebruikerService;
-import nl.qien.uren.urenregistratie.service.GebruikerDetailsService;
+import nl.qien.uren.urenregistratie.security.service.GebruikerDetailsService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

@@ -1,10 +1,12 @@
-package nl.qien.uren.urenregistratie.domein;
+package nl.qien.uren.urenregistratie.security.domain;
 
+import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
 
 public class GebruikerPrincipal implements UserDetails {
     private Gebruiker gebruiker;
