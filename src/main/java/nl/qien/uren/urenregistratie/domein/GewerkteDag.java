@@ -16,7 +16,8 @@ public class GewerkteDag {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long idGewerkteDag;
-	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
+	//changed pattern
+	@JsonFormat(shape = Shape.STRING, pattern = "yyyy-dd-MM")
 	private Date datum;
 	private float opdracht;
 	private float overwerk;
