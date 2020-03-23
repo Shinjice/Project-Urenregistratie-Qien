@@ -69,9 +69,10 @@ public class GebruikerEndpoint {
 		long id = opdrachtgever.getId();
 		return gebruikerService.findById1(id);
 	}
+	
 	@PostMapping("/postopdrachtgever")
 	public void addOpdrachtgever(@RequestBody Opdrachtgever opdrachtgever) {
-		System.out.println("hallo");
+		System.out.println("iets anders");
 		gebruikerService.addOpdrachtgever(opdrachtgever);
 	}
 	
@@ -81,5 +82,11 @@ public class GebruikerEndpoint {
 		//gebruikerService.deleteOpdrachtgever(opdrachtgever);
 	}
 	
+	// ERBIJ GEDAAN
+
+	@GetMapping("/gebruikers/medewerkers/{mwid}/{wgid}") // 
+	public void toevoegenOpdrachtgever(@PathVariable(value = "mwid") String medewerkerId, @PathVariable(value="wgid") String opdrachtgeverId) {
+		gebruikerService.addOpdrachtgeverGebruiker(Long.parseLong(medewerkerId), Long.parseLong(opdrachtgeverId));
+	}
 	
 }
