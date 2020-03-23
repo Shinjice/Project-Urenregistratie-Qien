@@ -66,9 +66,10 @@ public class GebruikerEndpoint {
 		long id = opdrachtgever.getId();
 		return gebruikerService.findById1(id);
 	}
+	
 	@PostMapping("/postopdrachtgever")
 	public void addOpdrachtgever(@RequestBody Opdrachtgever opdrachtgever) {
-		System.out.println("hallo");
+		System.out.println("iets anders");
 		gebruikerService.addOpdrachtgever(opdrachtgever);
 	}
 	
