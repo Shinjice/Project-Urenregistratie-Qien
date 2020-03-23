@@ -41,10 +41,13 @@ public class GebruikerService {
 		Iterable <Gebruiker> result = gebruikerRepository.findAll();
 		return result;
 	}
-	public void deleteGebruiker(@Valid Gebruiker gebruiker) {
-		gebruikerRepository.delete(gebruiker);
+//	public void deleteGebruiker(@Valid Gebruiker gebruiker) {
+//		gebruikerRepository.delete(gebruiker);
+//	}
+	public void deleteGebruiker(Long userId){
+		gebruikerRepository.deleteById(userId);
 	}
-	
+
 	public void addOpdrachtgever(Opdrachtgever opdrachtgever) {
 		opdrachtgeverRepository.save(opdrachtgever);
 	}
