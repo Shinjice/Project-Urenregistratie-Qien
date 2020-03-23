@@ -5,14 +5,11 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import nl.qien.uren.urenregistratie.domein.Medewerker;
+import nl.qien.uren.urenregistratie.domein.Opdracht;
+import nl.qien.uren.urenregistratie.service.OpdrachtgeverService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
@@ -21,7 +18,10 @@ import nl.qien.uren.urenregistratie.service.GebruikerService;
 @RestController
 public class GebruikerEndpoint {
 	@Autowired
-	GebruikerService gebruikerService;
+	private GebruikerService gebruikerService;
+
+	@Autowired
+	private OpdrachtgeverService opdrachtgeverService;
 
 	//Gebruiker
 	
@@ -46,11 +46,7 @@ public class GebruikerEndpoint {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
-////	@DeleteMapping("/delete/{id}") //nog niet getest
-////	public void deleteGebruiker(@PathVariable(value = "id") Long id,
-////			  @Valid @RequestBody Gebruiker gebruiker) {
-////		gebruikerService.deleteGebruiker(gebruiker);
-//	}
+
 	@DeleteMapping("/delete/{id}")
 		public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
 		gebruikerService.deleteGebruiker(Long.parseLong(gebruikerId));
@@ -66,7 +62,7 @@ public class GebruikerEndpoint {
 	
 	@GetMapping("/getbyidOpdrachtgever/{id}")
 	public Optional<Opdrachtgever> getOpdrachtgeverById(Opdrachtgever opdrachtgever) {
-		long id = opdrachtgever.getId();
+		long id = opdrachtgever.getOpdrachtgeverID();
 		return gebruikerService.findById1(id);
 	}
 	
@@ -81,12 +77,38 @@ public class GebruikerEndpoint {
 			  @Valid @RequestBody Opdrachtgever opdrachtgever) {
 		//gebruikerService.deleteOpdrachtgever(opdrachtgever);
 	}
-	
-	// ERBIJ GEDAAN
 
-	@GetMapping("/gebruikers/medewerkers/{mwid}/{wgid}") // 
-	public void toevoegenOpdrachtgever(@PathVariable(value = "mwid") String medewerkerId, @PathVariable(value="wgid") String opdrachtgeverId) {
-		gebruikerService.addOpdrachtgeverGebruiker(Long.parseLong(medewerkerId), Long.parseLong(opdrachtgeverId));
+	@PutMapping("/api/medewerkers/{id}")
+	public void updateMedewerker(@PathVariable Long id,@RequestBody Medewerker medewerker) {
+
 	}
-	
+
+	/* === VOORBEELD ===
+	 * Gesuggereerde endpoints voor omgaan met opdrachtgever van een specifieke
+	 * medewerker
+	 *
+	 * === WAARSCHUWING ===
+	 * ClassCasten van Gebruiker naar Medewerker hier is NIET goed -
+	 * dit kan beter worden aangepakt door de aparte services (verder leeg)
+	 * van Medewerker aan te spreken
+	 */
+
+	@GetMapping("/api/medewerkers/{id}/opdrachtgever")
+	public Opdrachtgever getOpdrachtgeverVanMedewerker(@PathVariable Long id) {
+		Medewerker medewerker = (Medewerker) this.gebruikerService.findById(id).get();
+		return medewerker.getOpdrachtgever();
+	}
+
+	@PutMapping("/api/medewerkers/{id}/opdrachtgever") //
+	public void toevoegenOpdrachtgever(@PathVariable Long id,  @RequestParam Long opdrachtgeverId) {
+		Medewerker medewerker = (Medewerker) this.gebruikerService.findById(id).get();
+		Opdrachtgever opdrachtgever = this.opdrachtgeverService.findById(opdrachtgeverId).get();
+		medewerker.setOpdrachtgever(opdrachtgever);
+	}
+	// Ziet er zo uit:
+	// PUT "http://server/api/medewerks/{id}/opdrachtgever?opdrachtgeverId=1234"
+
+	/* === EINDE VOORBEELD ===
+	 *
+	 */
 }
