@@ -82,5 +82,11 @@ public class GebruikerEndpoint {
 		//gebruikerService.deleteOpdrachtgever(opdrachtgever);
 	}
 	
+	// ERBIJ GEDAAN
+
+	@GetMapping("/gebruikers/medewerkers/{mwid}/{wgid}") // 
+	public void toevoegenOpdrachtgever(@PathVariable(value = "mwid") String medewerkerId, @PathVariable(value="wgid") String opdrachtgeverId) {
+		gebruikerService.addOpdrachtgeverGebruiker(Long.parseLong(medewerkerId), Long.parseLong(opdrachtgeverId));
+	}
 	
 }

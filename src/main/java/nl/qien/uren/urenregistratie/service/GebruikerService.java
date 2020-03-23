@@ -62,6 +62,14 @@ public class GebruikerService {
 		System.out.println("hoi"+gebruiker.size());
 		return gebruiker;
 	}
+	//toegevoegd
+	public void addOpdrachtgeverGebruiker(Long medewerkerId, Long opdrachtgeverId) {
+		Gebruiker gebruiker = gebruikerRepository.findById(medewerkerId).get();
+		Opdrachtgever opdrachtgever = opdrachtgeverRepository.findById(opdrachtgeverId).get();
+		gebruiker.setOwner(opdrachtgever);
+		gebruikerRepository.save(gebruiker);
+		System.out.println("Opdrachtgever toegevoegd aan werknemer.");
+	}
 		
 	
 }
