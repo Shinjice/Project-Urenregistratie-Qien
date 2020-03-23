@@ -104,6 +104,7 @@ public class GebruikerEndpoint {
 		Medewerker medewerker = (Medewerker) this.gebruikerService.findById(id).get();
 		Opdrachtgever opdrachtgever = this.opdrachtgeverService.findById(opdrachtgeverId).get();
 		medewerker.setOpdrachtgever(opdrachtgever);
+		this.gebruikerService.addGebruiker(medewerker); // Wel even checken of hierbij geen specificiteit verloren gaat
 	}
 	// Ziet er zo uit:
 	// PUT "http://server/api/medewerks/{id}/opdrachtgever?opdrachtgeverId=1234"
