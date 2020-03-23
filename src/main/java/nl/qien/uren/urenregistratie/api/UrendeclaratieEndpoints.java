@@ -9,4 +9,6 @@ import nl.qien.uren.urenregistratie.service.UrendeclaratieService;
 public class UrendeclaratieEndpoints {
 	@Autowired
 	UrendeclaratieService urendeclaratieService;
+	
+	
 }
