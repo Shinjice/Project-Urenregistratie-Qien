@@ -29,7 +29,7 @@ public class GebruikerEndpoint {
 	public Iterable <Gebruiker> getGebruikerAll() {
 	  return gebruikerService.findAll();
 	}
-	@GetMapping("/getbyid")
+	@GetMapping("/get/{id}")
 	public Optional <Gebruiker> getGebruikerById(Gebruiker gebruiker) {
 		long id = gebruiker.getId();
 		return gebruikerService.findById(id);
@@ -46,12 +46,15 @@ public class GebruikerEndpoint {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
-	@DeleteMapping("/delete/{id}") //nog niet getest
-	public void deleteGebruiker(@PathVariable(value = "id") Long id,
-			  @Valid @RequestBody Gebruiker gebruiker) {
-		gebruikerService.deleteGebruiker(gebruiker);
-	}
-	
+////	@DeleteMapping("/delete/{id}") //nog niet getest
+////	public void deleteGebruiker(@PathVariable(value = "id") Long id,
+////			  @Valid @RequestBody Gebruiker gebruiker) {
+////		gebruikerService.deleteGebruiker(gebruiker);
+//	}
+	@DeleteMapping("/delete/{id}")
+		public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
+		gebruikerService.deleteGebruiker(Long.parseLong(gebruikerId));
+}
 	@GetMapping("/search/{achternaam}")
 	public List<Gebruiker> findByLastname(@PathVariable String achternaam) {
 		List<Gebruiker> a = gebruikerService.findByAchternaam(achternaam);
