@@ -1,7 +1,7 @@
-package nl.qien.uren.urenregistratie.service;
+package nl.qien.uren.urenregistratie.security.service;
 
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
-import nl.qien.uren.urenregistratie.domein.GebruikerPrincipal;
+import nl.qien.uren.urenregistratie.security.domain.GebruikerPrincipal;
 import nl.qien.uren.urenregistratie.repository.GebruikerRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 /* Guide on Spring Security authentication with a
- * custom database-backed GebruikerDetailsService:
+ * custom database-backed UserDetailsService:
  * https://www.baeldung.com/spring-security-authentication-with-a-database
  */
 @Service
