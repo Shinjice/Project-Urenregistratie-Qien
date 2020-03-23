@@ -1,5 +1,6 @@
 package nl.qien.uren.urenregistratie.config;
 
+import nl.qien.uren.urenregistratie.domein.Admin;
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.service.GebruikerService;
 import nl.qien.uren.urenregistratie.service.GebruikerDetailsService;
@@ -29,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configure(GebruikerService gebruikerService) {
-        Gebruiker gebruiker = new Gebruiker();
+        Gebruiker gebruiker = new Admin();
         gebruiker.setEmailAdres("banaan@eten.nl");
         gebruiker.setWachtwoordHash(passwordEncoder().encode("chiquita"));
         gebruikerService.addGebruiker(gebruiker);

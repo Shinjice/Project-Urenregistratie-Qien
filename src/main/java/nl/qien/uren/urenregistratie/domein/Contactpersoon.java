@@ -1,39 +1,19 @@
 package nl.qien.uren.urenregistratie.domein;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Contactpersoon {
+public class Contactpersoon extends Gebruiker {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long idContactpersoon;
-	private String naam;
-//	@ManyToOne
-//	private Opdrachtgever owner;
+	@ManyToOne
+	private Opdrachtgever opdrachtgever;
 	
-	public long getIdContactpersoon() {
-		return idContactpersoon;
+	public Opdrachtgever getOpdrachtgever() {
+		return opdrachtgever;
 	}
-	public void setIdContactpersoon(long idContactpersoon) {
-		this.idContactpersoon = idContactpersoon;
+	public void setOpdrachtgever(Opdrachtgever opdrachtgever) {
+		this.opdrachtgever = opdrachtgever;
 	}
-	public String getNaam() {
-		return naam;
-	}
-	public void setNaam(String naam) {
-		this.naam = naam;
-	}
-//	public Opdrachtgever getOwner() {
-//		return owner;
-//	}
-//	public void setOwner(Opdrachtgever owner) {
-//		this.owner = owner;
-//	}
-	
-	
+
 }

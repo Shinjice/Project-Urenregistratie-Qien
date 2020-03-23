@@ -13,20 +13,20 @@ public class Opdrachtgever {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private long opdrachtgeverID;
+	private Long opdrachtgeverID;
+
 	private String naamOpdrachtgever;
-	
-	
-	@OneToMany(mappedBy = "owner")
-	private List<Medewerker> medewerkerId;
+
+	@OneToMany//(mappedBy = "owner")
+	private List<Medewerker> medewerkers;
 
 
-	public long getOpdrachtgeverID() {
+	public Long getOpdrachtgeverID() {
 		return opdrachtgeverID;
 	}
 
 
-	public void setOpdrachtgeverID(long opdrachtgeverID) {
+	public void setOpdrachtgeverID(Long opdrachtgeverID) {
 		this.opdrachtgeverID = opdrachtgeverID;
 	}
 
@@ -41,9 +41,9 @@ public class Opdrachtgever {
 	}
 
 
-	public long getId() {
-		return this.opdrachtgeverID;
-	}
+//	public long getId() {
+//		return this.opdrachtgeverID;
+//	}
 
 
 //	public void setId(List<Medewerker> id) {

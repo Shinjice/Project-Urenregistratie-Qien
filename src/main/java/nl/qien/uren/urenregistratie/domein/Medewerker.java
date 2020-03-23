@@ -1,35 +1,18 @@
 package nl.qien.uren.urenregistratie.domein;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
-public class Medewerker {
-	private long medewerkerId;
-	
-	
+public class Medewerker extends Gebruiker {
+
 	@ManyToOne
-	private Opdrachtgever owner;
+	private Opdrachtgever opdrachtgever;
 
-
-	public long getMedewerkerId() {
-		return medewerkerId;
+	public Opdrachtgever getOpdrachtgever() {
+		return opdrachtgever;
 	}
 
-
-	public void setMedewerkerId(long medewerkerId) {
-		this.medewerkerId = medewerkerId;
+	public void setOpdrachtgever(Opdrachtgever opdrachtgever) {
+		this.opdrachtgever = opdrachtgever;
 	}
-
-
-	public Opdrachtgever getOwner() {
-		return owner;
-	}
-
-
-	public void setOwner(Opdrachtgever owner) {
-		this.owner = owner;
-	}
-	
-	
 }

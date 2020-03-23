@@ -6,5 +6,5 @@ import nl.qien.uren.urenregistratie.domein.Contactpersoon;
 import nl.qien.uren.urenregistratie.domein.Medewerker;
 
 public interface MedewerkerRepository extends CrudRepository<Medewerker, Long>{
-
+    public Iterable<Medewerker> findAllByOpdrachtgever(Long opdrachtgeverID);
 }

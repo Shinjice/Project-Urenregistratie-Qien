@@ -11,14 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Gebruiker {
-	private enum Titel{
+public abstract class Gebruiker {
+	private enum Titel {
 		MR, MRS
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	//private Titel;
+
+	private Titel titel;
 	private String voornaam;
 	private String achternaam;
 	private LocalDate geboorteDatum;
@@ -41,6 +42,12 @@ public class Gebruiker {
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public Titel getTitel() {
+		return this.titel;
+	}
+	public void setTitel(Titel titel) {
+		this.titel = titel;
 	}
 	public String getVoornaam() {
 		return voornaam;

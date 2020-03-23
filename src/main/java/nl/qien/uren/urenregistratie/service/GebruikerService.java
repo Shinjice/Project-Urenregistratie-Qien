@@ -63,13 +63,15 @@ public class GebruikerService {
 		return gebruiker;
 	}
 	//toegevoegd
+/*
 	public void addOpdrachtgeverGebruiker(Long medewerkerId, Long opdrachtgeverId) {
 		Gebruiker gebruiker = gebruikerRepository.findById(medewerkerId).get();
 		Opdrachtgever opdrachtgever = opdrachtgeverRepository.findById(opdrachtgeverId).get();
-		gebruiker.setOwner(opdrachtgever);
+		gebruiker.set(opdrachtgever);
 		gebruikerRepository.save(gebruiker);
 		System.out.println("Opdrachtgever toegevoegd aan werknemer.");
 	}
-		
+*/
+
 	
 }
