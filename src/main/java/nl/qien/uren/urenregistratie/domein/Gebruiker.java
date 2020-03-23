@@ -11,36 +11,43 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Gebruiker {
-	private enum Titel{
+public abstract class Gebruiker {
+	private enum Titel {
 		MR, MRS
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	//private Titel;
+
+	private Titel titel;
 	private String voornaam;
 	private String achternaam;
 	private LocalDate geboorteDatum;
 	private String emailAdres;
 	private String telefoonNummer;
 	private String wachtwoordHash;
-
-	@ManyToOne
-	private Opdrachtgever owner;
+//	zodra medewerker gescheiden werkt, de volgende 2 regels verwijderen
+//	@ManyToOne
+//	private Opdrachtgever owner;
 	
 	
-	public Opdrachtgever getOwner() {
-		return owner;
-	}
-	public void setOwner(Opdrachtgever owner) {
-		this.owner = owner;
-	}
+//	public Opdrachtgever getOwner() {
+//		return owner;
+//	}
+//	public void setOwner(Opdrachtgever owner) {
+//		this.owner = owner;
+//	}
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public Titel getTitel() {
+		return this.titel;
+	}
+	public void setTitel(Titel titel) {
+		this.titel = titel;
 	}
 	public String getVoornaam() {
 		return voornaam;

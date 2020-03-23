@@ -3,12 +3,12 @@ package nl.qien.uren.urenregistratie.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import nl.qien.uren.urenregistratie.service.UrendeclaratieService;
+import nl.qien.uren.urenregistratie.service.MedewerkerService;
 
 @RestController
-public class UrendeclaratieEndpoints {
+public class MedewerkerEndpoints {
 	@Autowired
-	UrendeclaratieService urendeclaratieService;
-	
-	
+	MedewerkerService medewerkerService;
+
+
 }
