@@ -18,7 +18,7 @@ public class Opdrachtgever {
 	
 	
 	@OneToMany(mappedBy = "owner")
-	private List<Gebruiker> id;
+	private List<Medewerker> medewerkerId;
 
 
 	public long getOpdrachtgeverID() {
@@ -46,9 +46,9 @@ public class Opdrachtgever {
 	}
 
 
-	public void setId(List<Gebruiker> id) {
-		this.id = id;
-	}
+//	public void setId(List<Medewerker> id) {
+//		this.id = id;
+//	}
 	
 	
 	

@@ -25,17 +25,17 @@ public class Gebruiker {
 	private String emailAdres;
 	private String telefoonNummer;
 	private String wachtwoordHash;
-
-	@ManyToOne
-	private Opdrachtgever owner;
+//	zodra medewerker gescheiden werkt, de volgende 2 regels verwijderen
+//	@ManyToOne
+//	private Opdrachtgever owner;
 	
 	
-	public Opdrachtgever getOwner() {
-		return owner;
-	}
-	public void setOwner(Opdrachtgever owner) {
-		this.owner = owner;
-	}
+//	public Opdrachtgever getOwner() {
+//		return owner;
+//	}
+//	public void setOwner(Opdrachtgever owner) {
+//		this.owner = owner;
+//	}
 	public long getId() {
 		return id;
 	}

@@ -46,11 +46,7 @@ public class GebruikerEndpoint {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
-////	@DeleteMapping("/delete/{id}") //nog niet getest
-////	public void deleteGebruiker(@PathVariable(value = "id") Long id,
-////			  @Valid @RequestBody Gebruiker gebruiker) {
-////		gebruikerService.deleteGebruiker(gebruiker);
-//	}
+
 	@DeleteMapping("/delete/{id}")
 		public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
 		gebruikerService.deleteGebruiker(Long.parseLong(gebruikerId));
