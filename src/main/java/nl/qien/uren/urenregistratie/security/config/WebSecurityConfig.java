@@ -13,6 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+/* Comprehensive guide on JWT-based authentication and authorisation
+ * with Spring Security for RESTful APIs:
+ * https://www.toptal.com/java/rest-security-with-jwt-spring-security-and-java
+ */
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -51,7 +55,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests(authorize -> authorize
                         .antMatchers("/css/**", "/index").permitAll()
-                        .antMatchers("/user/**").hasRole("USER")
+                        .antMatchers("/auth-examples/**").hasRole("USER")
                 );
 
         http
