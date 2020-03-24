@@ -29,6 +29,7 @@ public class GebruikerEndpoint {
 	public Iterable <Gebruiker> getGebruikerAll() {
 	  return gebruikerService.findAll();
 	}
+	// Waarom moet er hier een gebruikerin als parameter? je krijgt id mee van url die kan je toch gebruiken om de gebruiker terug te krijgen
 	@GetMapping("/get/{id}")
 	public Optional <Gebruiker> getGebruikerById(Gebruiker gebruiker) {
 		long id = gebruiker.getId();
