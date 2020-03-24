@@ -7,9 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.domein.GewerkteDag;
-import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
 import nl.qien.uren.urenregistratie.domein.Urendeclaratie;
 import nl.qien.uren.urenregistratie.repository.UrendeclaratieRepository;
 
@@ -17,14 +15,17 @@ import nl.qien.uren.urenregistratie.repository.UrendeclaratieRepository;
 @Transactional
 public class UrendeclaratieService {
 	@Autowired
-	UrendeclaratieRepository urendeclaratieRepository;
+	private UrendeclaratieRepository urendeclaratieRepository;
 	
 	// deze tegevoed om gewerkte dag findbyid bij te kunnen bij methode addBestaandeGewerktedagUrendeclaratie
 	@Autowired
-	GewerkteDagService gewerkteDagService;
+	private GewerkteDagService gewerkteDagService;
 	
 	//added
 	public void addUrendeclaratie(Urendeclaratie urendeclaratie) {
+	    for (GewerkteDag dag : urendeclaratie.getGewerkteDagen()) {
+	    	this.gewerkteDagService.save(dag);
+		}
 		urendeclaratieRepository.save(urendeclaratie);
 	}
 	
@@ -46,10 +47,10 @@ public class UrendeclaratieService {
 	//gedeelte voorbeeld test 
 	public void test(GewerkteDag gewerkteDag) {
 		
-		}
+	}
 	
 	//added
-	public Optional<Urendeclaratie> findById(long id){
+	public Optional<Urendeclaratie> findById(Long id){
 		Optional<Urendeclaratie> result = urendeclaratieRepository.findById(id);
 		return result;
 	}

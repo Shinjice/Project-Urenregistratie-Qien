@@ -13,7 +13,6 @@ import nl.qien.uren.urenregistratie.service.ContactpersoonService;
 
 public class ContactpersoonEndpoints {
 	@Autowired
-	ContactpersoonService contactpersoonService;
-
+	private ContactpersoonService contactpersoonService;
 
 }

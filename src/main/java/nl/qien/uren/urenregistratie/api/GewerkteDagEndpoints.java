@@ -33,7 +33,7 @@ public class GewerkteDagEndpoints {
 	@PostMapping("/postdag")
 	public void addGebruiker(@RequestBody GewerkteDag gewerkteDag) {
 		System.out.println("dag toegevoegd");
-		gewerkteDagService.addDag(gewerkteDag);
+		gewerkteDagService.save(gewerkteDag);
 	}
 
 }

@@ -21,10 +21,11 @@ public class UrendeclaratieEndpoints {
 	UrendeclaratieService urendeclaratieService;
 	
 	//added werkt maar voor alleen de standaard fields
-	@PostMapping("/posturendeclaratie")
-	public void addUrendeclaratie(@RequestBody Urendeclaratie urendeclaratie) {
+	@PostMapping("/api/urendeclaraties")
+	public Urendeclaratie addUrendeclaratie(@RequestBody Urendeclaratie urendeclaratie) {
 		System.out.println("posturendeclaratie");
 		urendeclaratieService.addUrendeclaratie(urendeclaratie);
+		return urendeclaratie;
 	}
 	
 	//voorbeeld dat het werkt

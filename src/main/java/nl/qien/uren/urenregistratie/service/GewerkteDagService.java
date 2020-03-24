@@ -17,7 +17,7 @@ public class GewerkteDagService {
 	@Autowired
 	GewerkteDagRepository gewerkteDagRepository;
 	
-	public void addDag(GewerkteDag gewerkteDag) {
+	public void save(GewerkteDag gewerkteDag) {
 		gewerkteDagRepository.save(gewerkteDag);
 	}
 	public Iterable <GewerkteDag> findAll(){
