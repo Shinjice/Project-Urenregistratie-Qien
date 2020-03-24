@@ -11,9 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
+<<<<<<< Updated upstream
 public class Gebruiker {
 	private enum Titel{
 		MR, MRS
+=======
+public abstract class Gebruiker {
+	private enum Titel {
+		Dhr, Mevr,
+>>>>>>> Stashed changes
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,6 +30,8 @@ public class Gebruiker {
 	private LocalDate geboorteDatum;
 	private String emailAdres;
 	private String telefoonNummer;
+	private String adres;
+	private String woonplaats;
 	private String wachtwoordHash;
 	
 	@ManyToOne
@@ -78,5 +86,24 @@ public class Gebruiker {
 	public void setWachtwoordHash(String wachtwoordHash) {
 		this.wachtwoordHash = wachtwoordHash;
 	}
+<<<<<<< Updated upstream
 	
+=======
+
+	public String getAdres() {
+		return adres;
+	}
+
+	public void setAdres(String adres) {
+		this.adres = adres;
+	}
+
+	public String getWoonplaats() {
+		return woonplaats;
+	}
+
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
+	}
+>>>>>>> Stashed changes
 }

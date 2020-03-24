@@ -5,6 +5,13 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+<<<<<<< Updated upstream
+=======
+import nl.qien.uren.urenregistratie.domein.Medewerker;
+import nl.qien.uren.urenregistratie.domein.Opdracht;
+import nl.qien.uren.urenregistratie.service.MedewerkerService;
+import nl.qien.uren.urenregistratie.service.OpdrachtgeverService;
+>>>>>>> Stashed changes
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,34 +31,44 @@ public class GebruikerEndpoint {
 	GebruikerService gebruikerService;
 
 	//Gebruiker
-	
-	@GetMapping("/get")
+
+	@GetMapping("/api/gebruikers")
 	public Iterable <Gebruiker> getGebruikerAll() {
 	  return gebruikerService.findAll();
 	}
+<<<<<<< Updated upstream
 	@GetMapping("/get/{id}")
+=======
+	// Waarom moet er hier een gebruikerin als parameter? je krijgt id mee van url die kan je toch gebruiken om de gebruiker terug te krijgen
+	@GetMapping("/api/gebruikers/{id}")
+>>>>>>> Stashed changes
 	public Optional <Gebruiker> getGebruikerById(Gebruiker gebruiker) {
 		long id = gebruiker.getId();
 		return gebruikerService.findById(id);
 	}
-	@PostMapping("/post")
+	@PostMapping("/api/gebruikers")
 	public void addGebruiker(@RequestBody Gebruiker gebruiker) {
 		System.out.println("hallo");
 		gebruikerService.addGebruiker(gebruiker);
 	}
 	
-	@PutMapping("update/{id}")
+	@PutMapping("/api/gebruikers/{id}")
 	public void updatePersoon(@PathVariable(value = "id") Long id,
 			  @Valid @RequestBody Gebruiker gebruiker) {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
+<<<<<<< Updated upstream
 ////	@DeleteMapping("/delete/{id}") //nog niet getest
 ////	public void deleteGebruiker(@PathVariable(value = "id") Long id,
 ////			  @Valid @RequestBody Gebruiker gebruiker) {
 ////		gebruikerService.deleteGebruiker(gebruiker);
 //	}
 	@DeleteMapping("/delete/{id}")
+=======
+
+	@DeleteMapping("/api/gebruikers/{id}")
+>>>>>>> Stashed changes
 		public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
 		gebruikerService.deleteGebruiker(Long.parseLong(gebruikerId));
 }
