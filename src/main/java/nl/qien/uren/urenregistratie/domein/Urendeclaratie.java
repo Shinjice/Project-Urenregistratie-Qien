@@ -24,7 +24,9 @@ public class Urendeclaratie {
 //	private Opdracht opdracht;
 	@JsonFormat(shape = Shape.STRING, pattern = "MM")
 	private Date maand;
-	ArrayList<GewerkteDag> gewerkteDag;
+	
+	//private gemaakt en identifier gewerkteDagen van gemaakt
+	private ArrayList<GewerkteDag> gewerkteDagen;
 //tam: uitgecomment, anders loopt springboot niet
 //	@ManyToOne
 //	private Opdrachtgever opdrachtgever;
@@ -32,6 +34,62 @@ public class Urendeclaratie {
 	String notitie;
 	//changed to localdatetime
 	LocalDateTime verzendTijd;	
+	
+// 	Extra methode zodat er een gewerktedag kan toegevoegd worden
+	public void addGewerkteDag(GewerkteDag gewerkteDag) {
+		this.gewerkteDagen.add(gewerkteDag);
+	}
+	
+	
+	
+	public long getIdUrendeclaratie() {
+		return idUrendeclaratie;
+	}
+	public void setIdUrendeclaratie(long idUrendeclaratie) {
+		this.idUrendeclaratie = idUrendeclaratie;
+	}
+//	public Medewerker getMedewerker() {
+//		return medewerker;
+//	}
+//	public void setMedewerker(Medewerker medewerker) {
+//		this.medewerker = medewerker;
+//	}
+	public Date getMaand() {
+		return maand;
+	}
+	public void setMaand(Date maand) {
+		this.maand = maand;
+	}
+	public ArrayList<GewerkteDag> getGewerkteDag() {
+		return gewerkteDagen;
+	}
+	public void setGewerkteDag(ArrayList<GewerkteDag> gewerkteDag) {
+		this.gewerkteDagen = gewerkteDag;
+	}
+//	public Opdrachtgever getOpdrachtgever() {
+//		return opdrachtgever;
+//	}
+//	public void setOpdrachtgever(Opdrachtgever opdrachtgever) {
+//		this.opdrachtgever = opdrachtgever;
+//	}
+	public boolean isGoedKeuring() {
+		return goedKeuring;
+	}
+	public void setGoedKeuring(boolean goedKeuring) {
+		this.goedKeuring = goedKeuring;
+	}
+	public String getNotitie() {
+		return notitie;
+	}
+	public void setNotitie(String notitie) {
+		this.notitie = notitie;
+	}
+	public LocalDateTime getVerzendTijd() {
+		return verzendTijd;
+	}
+	public void setVerzendTijd(LocalDateTime verzendTijd) {
+		this.verzendTijd = verzendTijd;
+	}
 	
 	public void openzettenUrendeclaratie() {
 	}
