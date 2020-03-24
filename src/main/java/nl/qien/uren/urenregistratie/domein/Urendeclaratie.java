@@ -2,6 +2,7 @@ package nl.qien.uren.urenregistratie.domein;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import javax.persistence.Entity;
@@ -29,7 +30,8 @@ public class Urendeclaratie {
 //	private Opdrachtgever opdrachtgever;
 	private boolean goedKeuring;
 	String notitie;
-	LocalDate verzendTijd;	
+	//changed to localdatetime
+	LocalDateTime verzendTijd;	
 	
 	public void openzettenUrendeclaratie() {
 	}
