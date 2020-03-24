@@ -15,24 +15,97 @@ import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 @Entity
 public class Urendeclaratie {
+	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long idUrendeclaratie;
-//tam: uitgecomment, anders loopt springboot niet
-//	private Medewerker medewerker;
-//	private Opdracht opdracht;
+	
+	
+	
+	@ManyToOne
+	private Medewerker medewerker;
+		
 	@JsonFormat(shape = Shape.STRING, pattern = "MM")
 	private Date maand;
-	ArrayList<GewerkteDag> gewerkteDag;
-//tam: uitgecomment, anders loopt springboot niet
-//	@ManyToOne
-//	private Opdrachtgever opdrachtgever;
-	private boolean goedKeuring;
-	String notitie;
-	LocalDate verzendTijd;	
 	
-	public void openzettenUrendeclaratie() {
+	private ArrayList<GewerkteDag> gewerkteDag;
+	
+	@ManyToOne
+	private Opdrachtgever opdrachtgever;
+	
+	private boolean goedKeuring;
+	private String notitie;
+	private LocalDate verzendTijd;	
+
+	
+	
+	protected Urendeclaratie() {
 	}
-	public void sluitenUrendeclaratie() {
+	
+
+	// GETTERS SETTERS
+	public long getIdUrendeclaratie() {
+		return idUrendeclaratie;
 	}
+	public void setIdUrendeclaratie(long idUrendeclaratie) {
+		this.idUrendeclaratie = idUrendeclaratie;
+	}
+	public Date getMaand() {
+		return maand;
+	}
+	public void setMaand(Date maand) {
+		this.maand = maand;
+	}
+	public ArrayList<GewerkteDag> getGewerkteDag() {
+		return gewerkteDag;
+	}
+	public void setGewerkteDag(ArrayList<GewerkteDag> gewerkteDag) {
+		this.gewerkteDag = gewerkteDag;
+	}
+	public boolean isGoedKeuring() {
+		return goedKeuring;
+	}
+	public void setGoedKeuring(boolean goedKeuring) {
+		this.goedKeuring = goedKeuring;
+	}
+	public String getNotitie() {
+		return notitie;
+	}
+	public void setNotitie(String notitie) {
+		this.notitie = notitie;
+	}
+	public LocalDate getVerzendTijd() {
+		return verzendTijd;
+	}
+	public void setVerzendTijd(LocalDate verzendTijd) {
+		this.verzendTijd = verzendTijd;
+	}
+
+
+	public Medewerker getMedewerker() {
+		return medewerker;
+	}
+
+
+	public void setMedewerker(Medewerker medewerker) {
+		this.medewerker = medewerker;
+	}
+
+
+	public Opdrachtgever getOpdrachtgever() {
+		return opdrachtgever;
+	}
+
+
+	public void setOpdrachtgever(Opdrachtgever opdrachtgever) {
+		this.opdrachtgever = opdrachtgever;
+	}
+
+
+	
+	
+	
+	
+	
+	
 }
