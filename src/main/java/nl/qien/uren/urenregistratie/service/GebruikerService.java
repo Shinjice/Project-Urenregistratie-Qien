@@ -2,13 +2,9 @@ package nl.qien.uren.urenregistratie.service;
 
 import java.util.List;
 import java.util.Optional;
-
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
 import nl.qien.uren.urenregistratie.repository.GebruikerRepository;
