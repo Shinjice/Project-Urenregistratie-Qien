@@ -1,19 +1,18 @@
 package nl.qien.uren.urenregistratie.domein;
 
 import java.time.LocalDate;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Entity
+
 public abstract class Gebruiker {
 	private enum Titel {
-		MR, MRS
+		Dhr, Mevr,
+
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -25,6 +24,8 @@ public abstract class Gebruiker {
 	private LocalDate geboorteDatum;
 	private String emailAdres;
 	private String telefoonNummer;
+	private String adres;
+	private String woonplaats;
 	private String wachtwoordHash;
 //	zodra medewerker gescheiden werkt, de volgende 2 regels verwijderen
 //	@ManyToOne
@@ -84,6 +85,18 @@ public abstract class Gebruiker {
 	}
 	public void setWachtwoordHash(String wachtwoordHash) {
 		this.wachtwoordHash = wachtwoordHash;
+	}
+	public String getAdres() {
+		return adres;
+	}
+	public void setAdres(String adres) {
+		this.adres = adres;
+	}
+	public String getWoonplaats() {
+		return woonplaats;
+	}
+	public void setWoonplaats(String woonplaats) {
+		this.woonplaats = woonplaats;
 	}
 
 }

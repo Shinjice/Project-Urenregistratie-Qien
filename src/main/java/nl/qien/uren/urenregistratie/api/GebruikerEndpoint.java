@@ -2,15 +2,11 @@ package nl.qien.uren.urenregistratie.api;
 
 import java.util.List;
 import java.util.Optional;
-
 import javax.validation.Valid;
-
 import nl.qien.uren.urenregistratie.domein.Medewerker;
-import nl.qien.uren.urenregistratie.domein.Opdracht;
 import nl.qien.uren.urenregistratie.service.OpdrachtgeverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
 import nl.qien.uren.urenregistratie.service.GebruikerService;
@@ -24,30 +20,43 @@ public class GebruikerEndpoint {
 	private OpdrachtgeverService opdrachtgeverService;
 
 	//Gebruiker
-	
-	@GetMapping("/get")
+
+	@GetMapping("/api/gebruikers")
 	public Iterable <Gebruiker> getGebruikerAll() {
 	  return gebruikerService.findAll();
 	}
-	@GetMapping("/get/{id}")
+
+	// Waarom moet er hier een gebruikerin als parameter? je krijgt id mee van url die kan je toch gebruiken om de gebruiker terug te krijgen
+
+	// Waarom moet er hier een gebruikerin als parameter? je krijgt id mee van url die kan je toch gebruiken om de gebruiker terug te krijgen
+	@GetMapping("/api/gebruikers/{id}")
+
 	public Optional <Gebruiker> getGebruikerById(Gebruiker gebruiker) {
 		long id = gebruiker.getId();
 		return gebruikerService.findById(id);
 	}
-	@PostMapping("/post")
+	@PostMapping("/api/gebruikers")
 	public void addGebruiker(@RequestBody Gebruiker gebruiker) {
 		System.out.println("hallo");
 		gebruikerService.addGebruiker(gebruiker);
 	}
 	
-	@PutMapping("update/{id}")
+	@PutMapping("/api/gebruikers/{id}")
 	public void updatePersoon(@PathVariable(value = "id") Long id,
 			  @Valid @RequestBody Gebruiker gebruiker) {
 		gebruiker.setId(id);
 		gebruikerService.addGebruiker(gebruiker);
 	}
 
-	@DeleteMapping("/delete/{id}")
+////	@DeleteMapping("/delete/{id}") //nog niet getest
+////	public void deleteGebruiker(@PathVariable(value = "id") Long id,
+////			  @Valid @RequestBody Gebruiker gebruiker) {
+////		gebruikerService.deleteGebruiker(gebruiker);
+//	}
+
+
+	@DeleteMapping("/api/gebruikers/{id}")
+
 		public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
 		gebruikerService.deleteGebruiker(Long.parseLong(gebruikerId));
 }
