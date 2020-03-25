@@ -9,13 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import nl.qien.uren.urenregistratie.domein.Contactpersoon;
-import nl.qien.uren.urenregistratie.domein.Gebruiker;
 import nl.qien.uren.urenregistratie.domein.Medewerker;
-import nl.qien.uren.urenregistratie.domein.Opdrachtgever;
-import nl.qien.uren.urenregistratie.repository.ContactpersoonRepository;
 import nl.qien.uren.urenregistratie.service.ContactpersoonService;
 import nl.qien.uren.urenregistratie.service.OpdrachtgeverService;
 
@@ -25,24 +20,24 @@ public class ContactpersoonEndpoints {
 	@Autowired
 	OpdrachtgeverService opdrachtgeverService;
 	
-	@GetMapping("/get")
+	@GetMapping("/1/get")
 	public Iterable <Contactpersoon> getGebruikerAll() {
 	  return contactpersoonService.findAll();
 	}
 	
-	@PostMapping("/post")
-	public void addContactPersoon(@RequestBody Contactpersoon contactpersoon) {
+	@PostMapping("/1/post")
+	public void addGebruiker(@RequestBody Contactpersoon contactpersoon) {
 		System.out.println("hallo");
 		contactpersoonService.addGebruiker(contactpersoon);
 	}
 	
-	@DeleteMapping("/delete/{id}")
+	@DeleteMapping("/1/{id}")
 	public void deleteGebruiker(@PathVariable(value = "id") String gebruikerId) {
 		contactpersoonService.deleteGebruiker(Long.parseLong(gebruikerId));
 	}
 	
-	@PutMapping("/api/medewerkers/{id}")
-	public void updateMedewerker(@PathVariable Long id,@RequestBody Medewerker medewerker) {
+	@PutMapping("/1/{id}")
+	public void updateMedewerker(@PathVariable Long id,@RequestBody Contactpersoon contactpersoon) {
 
 	}
 	//tam bezig
