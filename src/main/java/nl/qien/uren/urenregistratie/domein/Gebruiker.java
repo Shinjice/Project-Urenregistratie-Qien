@@ -1,30 +1,24 @@
 package nl.qien.uren.urenregistratie.domein;
 
 import java.time.LocalDate;
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 
 @Entity
-<<<<<<< Updated upstream
-public class Gebruiker {
-	private enum Titel{
-		MR, MRS
-=======
+
 public abstract class Gebruiker {
 	private enum Titel {
 		Dhr, Mevr,
->>>>>>> Stashed changes
+
 	}
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
-	//private Titel;
+
+	private Titel titel;
 	private String voornaam;
 	private String achternaam;
 	private LocalDate geboorteDatum;
@@ -33,22 +27,28 @@ public abstract class Gebruiker {
 	private String adres;
 	private String woonplaats;
 	private String wachtwoordHash;
+//	zodra medewerker gescheiden werkt, de volgende 2 regels verwijderen
+//	@ManyToOne
+//	private Opdrachtgever owner;
 	
-	@ManyToOne
-	private Opdrachtgever owner;
 	
-	
-	public Opdrachtgever getOwner() {
-		return owner;
-	}
-	public void setOwner(Opdrachtgever owner) {
-		this.owner = owner;
-	}
+//	public Opdrachtgever getOwner() {
+//		return owner;
+//	}
+//	public void setOwner(Opdrachtgever owner) {
+//		this.owner = owner;
+//	}
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
+	}
+	public Titel getTitel() {
+		return this.titel;
+	}
+	public void setTitel(Titel titel) {
+		this.titel = titel;
 	}
 	public String getVoornaam() {
 		return voornaam;
@@ -86,24 +86,17 @@ public abstract class Gebruiker {
 	public void setWachtwoordHash(String wachtwoordHash) {
 		this.wachtwoordHash = wachtwoordHash;
 	}
-<<<<<<< Updated upstream
-	
-=======
-
 	public String getAdres() {
 		return adres;
 	}
-
 	public void setAdres(String adres) {
 		this.adres = adres;
 	}
-
 	public String getWoonplaats() {
 		return woonplaats;
 	}
-
 	public void setWoonplaats(String woonplaats) {
 		this.woonplaats = woonplaats;
 	}
->>>>>>> Stashed changes
+
 }
